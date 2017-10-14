@@ -17,14 +17,20 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-hover">
+            @foreach($todos as $todo)
             <tr>
-                <td>静的なTodoです</td>
-                <td>2015-04-01 00:00:00</td>
-                <td>2015-04-10 00:00:00</td>
-                <td><a class="btn btn-info" href="">編集</a></td>
-                <td><button class="btn btn-danger" type="submit">削除</button></td>
+                <td>{{ $todo->title }}</td>
+                <td>{{ $todo->created_at }}</td>
+                <td>{{ $todo->updated_at }}</td>
+                <td><a class="btn btn-info" href="/todo/{{ $todo->id }}/edit">編集</a></td>
+                {!! Form::open(['route'=>['todo.destroy',$todo->id],'method'=>'DELETE']) !!}
+                <td>
+                    <button class="btn btn-danger" type="submit">削除</button>
+                </td>
+                {!! Form::close() !!}
             </tr>
+            @endforeach
             </tbody>
         </table>
 <!-- test22 -->

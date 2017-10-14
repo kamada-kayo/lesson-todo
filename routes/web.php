@@ -15,3 +15,4 @@
     //return view('welcome');
 //});
 Route::resource('/', 'TodoController');
+Route::resource('todo', 'TodoController');
