@@ -11,8 +11,8 @@
 |
 */
 
-//Route::get('/', function () {
-    //return view('welcome');
-//});
-Route::resource('/', 'TodoController');
+Route::get('/', function () {
+    return view('welcome');
+});
+//Route::resource('/', 'TodoController');
 Route::resource('todo', 'TodoController');
